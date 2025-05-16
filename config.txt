@@ -1,0 +1,23 @@
+DEBERA CREAR UN ARCHIVO DE CONFIGURACIÓN LLAMADO .env
+que contendra lo siguiente:
+
+    DATABASE_URL= "Aqui ingresa la URL de base de datos generada en Render"
+    FLASK_APP=application.py
+    FLASK_DEBUG=1
+
+El script para crear la tabla de la base de datos es la siguiente
+CREATE TABLE empleados{
+    id SERIAL primary key,
+    nombre varchar(100) NOT NULL,
+    cedula varchar(100) NOT NULL,
+    edad INT NOT NULL,
+    sexo varchar(10),
+    telefono varchar(20),
+    cargo(50)
+}
+
+LINK DE LA PLATAFORMA PARA CREAR LA INSTANCIA EN LA NUBE DE LA BASE DE datos
+render: https://render.com/
+
+LINK PARA DESCARGAR EL GESTOR DE LA BASE DE DATOS 
+url: https://www.beekeeperstudio.io/
