@@ -1,0 +1,28 @@
+{% extends './layout.html' %}
+
+{% block title %}Notification {%endblock %}
+
+{%block body%}
+<script>
+  const icon = "{{data.icon}}";
+  const title = "{{data.title}}";
+  const text = "{{data.text}}";
+  const reload = "{{data.redirect}}";
+  document.addEventListener("DOMContentLoaded", async function () {
+    await Swal.fire({
+      title: title,
+      text: text,
+      icon: icon,
+      showConfirmButton: true,
+      confirmButtonText: "Aceptar",
+      timer: 1500,
+      timerProgressBar: true
+    });
+    window.location.href = `/${reload}`;
+    cleanHistory();
+  });
+  const cleanHistory = () => {
+    history.replaceState(null, null, `/${reload}`);
+  };
+</script>
+{% endblock %}

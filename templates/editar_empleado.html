@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block title %}EDITAR EMPLEADO{% endblock %}
+
+{% block body %}
+<div class="col-md-4 container py-4">
+    <div class="card p-4">
+        <h4 class="mb-3">Editar empleado</h4>
+        <form action="/update_empleado/{{ empleado.id }}" method="POST" enctype="multipart/form-data">
+            <div class="mb-2">
+                <label class="form-label">Nombre</label>
+                <input type="text" name="nombreUsuario" class="form-control" value="{{ empleado.nombre }}">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Cédula (NIC)</label>
+                <input type="text" name="cedula" class="form-control" value="{{ empleado.cedula }}">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Seleccione la edad</label>
+                <select class="form-select" name="edad">
+                    <option {% if empleado.edad == 18 %}selected{% endif %}>18</option>
+                    <option {% if empleado.edad == 25 %}selected{% endif %}>25</option>
+                    <option {% if empleado.edad == 30 %}selected{% endif %}>30</option>
+                    <option {% if empleado.edad == 40 %}selected{% endif %}>40</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Sexo</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sexo" value="Masculino" {% if empleado.sexo == 'Masculino' %}checked{% endif %}>
+                    <label class="form-check-label">Masculino</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="sexo" value="Femenino" {% if empleado.sexo == 'Femenino' %}checked{% endif %}>
+                    <label class="form-check-label">Femenino</label>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Teléfono</label>
+                <input type="text" name="telefono" class="form-control" value="{{ empleado.telefono }}">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Seleccione el Cargo</label>
+                <select class="form-select" name="cargo">
+                    <option {% if empleado.cargo == "Desarrollador" %}selected{% endif %}>Desarrollador</option>
+                    <option {% if empleado.cargo == "Analista" %}selected{% endif %}>Analista</option>
+                    <option {% if empleado.cargo == "Asistente" %}selected{% endif %}>Asistente</option>
+                    <option {% if empleado.cargo == "Secretario" %}selected{% endif %}>Secretario</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Actualizar Empleado</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
